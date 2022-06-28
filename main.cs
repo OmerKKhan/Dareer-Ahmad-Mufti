@@ -1,36 +1,36 @@
-//Palindrome problem
-// A phrase is a palindrome if, it is the same string if it is reversed
+//Task 1
+// A phrase is a palindrome if it reads the same forward and backward.
 
 // Given a string s, return true if it is a palindrome, or false otherwise.
 
+ 
+//
+
 // Example 1:
 
-// Input: s = "amanaplanacanalpanama"
+// Input: s = "pananap”
 // Output: true
-// Explanation: "amanaplanacanalpanama" is a palindrome.
+// Explanation: "pananap" is a palindrome.
 // Example 2:
 
-// Input: s = "raceacar"
+// Input: s = "raceacar"+
 // Output: false
 // Explanation: "raceacar" is not a palindrome.
 
-// Input: s = "cars"
-// Output: false
-
-
-//Input s = "jacaj"
-bool IsPalindrome(string input)
+public bool IsPalindrome(string s)
 {
-  int halflength = input.length/2;
-  for(int i=0,j=input.length-1;i<halflength;i++,j--)
-  {
-    if(input[i]!=input[j])
+  int len = (int) s.length /2;
+  for(int i = 0; i < len; i++) {
+
+    if(s[i] != s[s.length-1 - i])
       return false;
   }
-  return  true;
+
+  return true;
 }
 
 
+//Task 2
 // Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
 
 // You may assume that each input would have exactly one solution, and you may not use the same element twice.
@@ -40,35 +40,44 @@ bool IsPalindrome(string input)
  
 
 // Example 1:
-// 7 l t2 R15 L11
-// Input: nums = [11,2,7,15], target = 9
-// Output: [0,2]
+
+// Input: nums = [2,7,11,15], target = 9
+// Output: [0,1]
 // Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 // Example 2:
 
-// Input: nums = [3,2,4], target = 7
-// Output: [0,2]
+// Input: nums = [3,2,4], target = 6
+// Output: [1,2]
 // Example 3:
 
 // Input: nums = [3,3], target = 6
 // Output: [0,1]
 
-int2 GetTargetSumPair(int[] nums, int target)
-{
-  for(int i=0;i<nums.length-1;i++)
-  {
-    if(nums[i])> target)
-      continue;
-   for(int j=i+1;j<nums.length;j++)
-  {
-    if(nums[i]+nums[j] == target)
-    {
-      return new int2(i,j);
+int target = 9;
+int[] x = new int[4] {2,7,11,15};
+
+// O(|nlogn| + |logN|)
+
+
+
+
+public int[] GetIndexes(int[] arr, int target){
+  for (int i = 0 ; i < arr.Length -1 ; i++) {
+    int diff = target - arr[i];
+    for(int j = i+1; j <= arr.Length; j++) {
+      if(diff == arr[j]){
+        return new int[] {i, j};
+      }
     }
-  } 
   }
+  
+  return new int[0];
 }
 
-// Improved it using trees but took a lot of time and wasn't clear
-
-{2:0, 11:1, 7:2, 15:3}
+//Dictionary optimisation
+Dictionary<int, int> d = new Dictionary<int, int>();
+for(int i = 0 ; x < arr.Length; i++) {
+    int diff = target - arr[i];
+  if(d.hasKey(diff))
+    return 
+}
